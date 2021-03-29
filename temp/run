@@ -1,2 +1,7 @@
-#!/bin/sh
-./a.out --docroot . --http-address 0.0.0.0 --http-port 9090
+#!/bin/bash
+if [ "$(uname -o)" == "GNU/Linux" ]; then
+    ./a.out --docroot . --http-address 0.0.0.0 --http-port 9090 --resources-dir /usr/local/share/Wt/resources/
+elif [ "$(uname -o)" == "Android" ]; then
+    ./a.out --docroot . --http-address 0.0.0.0 --http-port 9090 --resources-dir /data/data/com.termux/files/usr/share/Wt/resources/ 
+fi
+
